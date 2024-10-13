@@ -33,6 +33,16 @@ print(key)
 
 # COMMAND ----------
 
+# MAGIC %sql 
+# MAGIC delete from silver.circuits
+# MAGIC where circuitId in (select circuitId from(
+# MAGIC select circuitId,count(*) from silver.circuits
+# MAGIC group by 1
+# MAGIC having count(*)>1))
+# MAGIC
+
+# COMMAND ----------
+
 if(tablename=='all'):
     mergewithdelta(getlatest('/mnt/bronzeadls/{0}'.format(tablename)),'silver',tablename,circuitsKey)
     mergewithdelta(getlatest('/mnt/bronzeadls/{0}'.format(tablename)),'silver',tablename,driversKey)
