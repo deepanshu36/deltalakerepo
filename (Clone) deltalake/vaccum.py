@@ -10,6 +10,6 @@ df=spark.sql('show tables').select('tableName').collect()
 for i in df:
     print (i["tableName"])
     deltatable=DeltaTable.forName(spark,i["tableName"])
-    deltatable.vacuum(4)
+    # deltatable.vacuum(4)
 
 
