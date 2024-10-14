@@ -43,10 +43,12 @@ display(df)
 
 df=df.dropDuplicates()
 
-if(filedate is not None and filedate in getlatest('/mnt/bronzeadls/results/')[0]):
+if(filedate in getlatest('/mnt/bronzeadls/results/')[0]):
+
     print(filedate,df["file_date"])
     df.write.partitionBy('file_date').mode('overwrite')\
     .option('replaceWhere', f"file_date=='{filedate}'")\
     .save('/mnt/bronzeadls/results/')
+
 else:
-    df.write.partitionBy('file_date').mode('overwrite').save('/mnt/bronzeadls/results/')
+    df.write.partitionBy('file_date').mode('append').save('/mnt/bronzeadls/results/')
