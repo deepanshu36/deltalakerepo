@@ -21,7 +21,9 @@ elif(tablename in 'drivers'):
 elif(tablename in 'results'):
     key=resultsKey
 elif(tablename in 'race'):
-    key=raceKey       
+    key=raceKey
+elif(tablename in 'laptimes'):
+    key=laptimesKey           
 
 
 
@@ -33,13 +35,13 @@ print(key)
 
 # COMMAND ----------
 
-# MAGIC %sql 
-# MAGIC delete from bronze.circuits
-# MAGIC where circuitId in (select circuitId from(
-# MAGIC select circuitId,count(*) from bronze.circuits
-# MAGIC group by 1
-# MAGIC having count(*)>1))
-# MAGIC
+# %sql 
+# delete from bronze.circuits
+# where circuitId in (select circuitId from(
+# select circuitId,count(*) from bronze.circuits
+# group by 1
+# having count(*)>1))
+
 
 # COMMAND ----------
 
