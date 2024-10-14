@@ -34,9 +34,9 @@ print(key)
 # COMMAND ----------
 
 # MAGIC %sql 
-# MAGIC delete from silver.circuits
+# MAGIC delete from bronze.circuits
 # MAGIC where circuitId in (select circuitId from(
-# MAGIC select circuitId,count(*) from silver.circuits
+# MAGIC select circuitId,count(*) from bronze.circuits
 # MAGIC group by 1
 # MAGIC having count(*)>1))
 # MAGIC
