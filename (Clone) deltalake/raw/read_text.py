@@ -30,7 +30,7 @@ print(getlatest('/mnt/sourceeadlsgen2/laptimes/')[0],filedate)
 
 df=spark.read.format('csv').schema(schema).option('header',True).load(filename)
 
-
+df.dropDuplicates()
 # display(df)
 
 from pyspark.sql.types import *
