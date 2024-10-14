@@ -4,10 +4,6 @@
 
 # COMMAND ----------
 
-dbutils.fs.rm('/mnt/bronzeadls/results/',True)
-
-# COMMAND ----------
-
 def getlatest(location):
     a=[]
     
