@@ -1,7 +1,6 @@
 # Databricks notebook source
 # MAGIC
-# MAGIC %run /Workspace/Users/deepanshuk36@gmail.com/deltalake/importfunctions/impfun
-# MAGIC
+# MAGIC %run "/Workspace/Repos/deepanshuk36@gmail.com/deltalakerepo/(Clone) deltalake/importfunctions/impfun"
 
 # COMMAND ----------
 
